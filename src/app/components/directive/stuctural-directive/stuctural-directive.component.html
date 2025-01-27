@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row pt-3">
+    <div class="col-3 text-center">
+      <div *ngIf="isDivVisible" class="bg-danger p-3">
+        <h4>Div-1</h4>
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div *ngIf="isToggle" class="bg-success p-3">
+        <h4>Div-2</h4>
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div *ngIf="num1 == num2" class="bg-secondary p-3">
+        <h4>Div-3</h4>
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div *ngIf="selectedState == 'Goa'" class="bg-primary p-3">
+        <h4>Div-4</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <!-- For Div-1 -->
+    <div class="col-3 text-center">
+      <button class="btn btn-success" (click)="buttonShow()">Show</button>
+      <button class="btn btn-danger mx-2" (click)="buttonHide()">Hide</button>
+    </div>
+    <!-- For Div-2 -->
+    <div class="col-3 text-center">
+      <button class="btn btn-warning" (click)="buttonToggle()">Toggler</button>
+    </div>
+    <!-- For Div-3 -->
+    <div class="col-3 text-center">
+      <div class="d-flex align-items-center justify-content-center">
+        <input type="text" [(ngModel)]="num1" class="col-4" />
+        <input type="text" [(ngModel)]="num2" class="col-4" />
+      </div>
+    </div>
+    <div class="col-3 text-center">
+      <div class="d-flex">
+        <input type="checkbox" [(ngModel)]="isActive" />
+        <select [(ngModel)]="selectedState">
+          <option value="">Select State</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Goa">Goa</option>
+          <option value="Karnataka">Karnataka</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <ul>
+        <li *ngFor="let city of cityArray">{{city}}</li>
+      </ul>
+    </div>
+    <div class="col-3">
+      <ul>
+        <li *ngFor="let stud of studentList" [value]="stud.sid">{{stud.name}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
