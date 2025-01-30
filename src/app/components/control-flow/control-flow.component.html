@@ -1,0 +1,134 @@
+<div class="container">
+  <h3>Control Flow</h3>
+  <div class="loops">
+    <div class="row">
+      <div>
+        <input
+          type="text"
+          placeholder="Enter the number which day you want to see"
+          [(ngModel)]="dayOfWeek"
+        />
+        <div>
+          Day Name is @switch (dayOfWeek) { @case ('1') {
+          <span>Monday</span>
+          } @case ('2') {
+          <span>Tuesd</span>
+          } @case ('3') {
+          <span>Wednes</span>
+          } @case ('4') {
+          <span>Thrus</span>
+          } @case ('5') {
+          <span>Friday</span>
+          } @case ('6') {
+          <span>Sat</span>
+          } @case ('7') {
+          <span>Sunday</span>
+          }@default { <span>Enter between 1-7</span> } }
+        </div>
+        <br />
+      </div>
+      <div class="col-3">
+        <table class="table table-bordered table-hover text-center">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>City</td>
+              <td>Activity</td>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of studentList; track $index) {
+            <tr>
+              <td>{{ item.sid }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.city }}</td>
+              <td>{{ item.isActive }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+        <ul>
+          @for (item of cityArray; track $index) {
+          <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="row pt-3">
+      <div class="col-3 text-center">
+        @if(isDivVisible){
+        <div class="bg-success p-3">
+          <h4>Div-1</h4>
+        </div>
+        } @else if (!isDivVisible) {
+        <h4>Hidden</h4>
+        }
+      </div>
+      <div class="col-3 text-center">
+        @if (isToggle) {
+        <div class="bg-success p-3">
+          <h4>Div-2</h4>
+        </div>
+        }
+      </div>
+      <div class="col-3 text-center">
+        @if (num1 == num2) {
+        <div class="bg-secondary p-3">
+          <h4>Number are same</h4>
+        </div>
+        } @else {
+        <p>Make both numbers same</p>
+        }
+      </div>
+      <div class="col-3 text-center">
+        @if (selectedState=='Maharashtra') {
+        <div class="bg-primary p-3">
+          <h4>Maharashtra</h4>
+        </div>
+        } @else if (selectedState=='Goa') {
+        <div class="bg-success p-3">
+          <h4>Goa</h4>
+        </div>
+        } @else if (selectedState=='Karnataka') {
+        <div class="bg-warning p-3">
+          <h4>Karnataka</h4>
+        </div>
+        }
+      </div>
+    </div>
+    <div class="row pt-3">
+      <!-- For Div-1 -->
+      <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="buttonShow()">Show</button>
+        <button class="btn btn-danger mx-2" (click)="buttonHide()">Hide</button>
+      </div>
+      <!-- For Div-2 -->
+      <div class="col-3 text-center">
+        <button class="btn btn-warning" (click)="buttonToggle()">
+          Toggler
+        </button>
+      </div>
+      <!-- For Div-3 -->
+      <div class="col-3 text-center">
+        <div class="d-flex align-items-center justify-content-center">
+          <input type="text" [(ngModel)]="num1" class="col-4" />
+          <input type="text" [(ngModel)]="num2" class="col-4" />
+        </div>
+      </div>
+      <!-- For Div-4 -->
+      <div class="col-3 text-center">
+        <div class="d-flex">
+          <input type="checkbox" [(ngModel)]="isActive" />
+          <select [(ngModel)]="selectedState">
+            <option value="">Select State</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Goa">Goa</option>
+            <option value="Karnataka">Karnataka</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
